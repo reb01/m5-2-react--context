@@ -2,15 +2,16 @@ Your `GameProvider` component should look something like this:
 
 ```jsx
 export const GameProvider = ({ children }) => {
-  const [numCookies, setNumCookies] = usePersistedState("numCookies", 1000);
+  const [numCookies, setNumCookies] = usePersistedState(1000, "num-Cookies");
 
   const [purchasedItems, setPurchasedItems] = usePersistedState(
-    "purchasedItems",
     {
       cursor: 0,
       grandma: 0,
       farm: 0,
     }
+    "purchasedItems",
+
   );
 
   const calculateCookiesPerSecond = (purchasedItems) => {
@@ -24,7 +25,7 @@ export const GameProvider = ({ children }) => {
         setNumCookies,
         purchasedItems,
         setPurchasedItems,
-        cookiesPerSecond: calculateCookiesPerSecond(purchasedItems),
+        // cookiesPerSecond: calculateCookiesPerSecond(purchasedItems),
       }}
     >
       {children}
